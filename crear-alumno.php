@@ -68,10 +68,12 @@
 
     <nav>
         <div class="nav-wrapper">
-            <a href="index.php" class="brand-logo">Logo</a>
+            <a href="index.php" class="brand-logo"><img style="height:62px;" src="media/imgs/logoNegro.png"></a>
             <a href="index.php" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
             <ul class="right hide-on-med-and-down">
+                <li><a href="cursos.php">Cursos</a></li>
                 <li><a href="alumnos.php">Alumnos</a></li>
+				<li><a href="deudas.php">Deudas</a></li>
                 <li><a href="#">Crear alumno</a></li>
                 <li><a href="balance.php">Balance</a></li>
                 <li><a href="pagos.php">Pagos</a></li>
@@ -81,7 +83,9 @@
     </nav>
 
     <ul class="sidenav" id="mobile-demo">
+		<li><a href="cursos.php">Cursos</a></li>
         <li><a href="alumnos.php">Alumnos</a></li>
+		<li><a href="deudas.php">Deudas</a></li>
         <li><a href="#">Crear alumno</a></li>
         <li><a href="balance.php">Balance</a></li>
         <li><a href="pagos.php">Pagos</a></li>
