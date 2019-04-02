@@ -21,8 +21,8 @@
     <!--Navbar-->
 
     <nav>
-        <div class="nav-wrapper">
-            <a href="index.php" class="brand-logo"><img style="height:62px;" src="media/imgs/logoNegro.png"></a>
+        <div class="nav-wrapper #1e88e5 blue darken-1">
+            <a href="index.php" class="brand-logo"><img style="height:62px;" src="media/imgs/logoBlanco.png"></a>
             <a href="index.php" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
             <ul class="right hide-on-med-and-down">
                 <li><a href="cursos.php">Cursos</a></li>
