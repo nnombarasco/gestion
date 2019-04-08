@@ -25,7 +25,7 @@
 		$sql = "INSERT INTO alumnos(nombre, domicilio, localidad, telefono, dni, nacimiento, email, facebook, instagram, ocupacion, observacion, inicio) 
 		VALUES(:nombre, :domicilio, :localidad, :telefono, :dni, :nacimiento, :email, :facebook, :instagram, :ocupacion, :observacion, :inicio)";
 		$query = $pdo->prepare($sql);
-		$sql1 = "INSERT INTO curso(fechaInicio, numeroRecibo, monto, nivelCurso, horario, dniAlumno) VALUES(:fechaInicio, :numeroRecibo, :monto, :nivelCurso, :horario, :dniAlumno)";
+		/*$sql1 = "INSERT INTO cursos(fechaInicio, numeroRecibo, monto, nivelCurso, horario, dniAlumno) VALUES(:fechaInicio, :numeroRecibo, :monto, :nivelCurso, :horario, :dniAlumno)";
 		$query1 = $pdo->prepare($sql1);
 
 		$result1 = $query1->execute([
@@ -35,7 +35,7 @@
 		'nivelCurso' => $nivelCurso,
 		'horario' =>$horario,
 		'dniAlumno' => $dni
-		]);
+		]);*/
 
 		$result = $query->execute([
 		 'nombre' => $nombre,

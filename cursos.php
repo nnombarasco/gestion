@@ -3,39 +3,31 @@
 
 	 $queryResult = $pdo->query("SELECT * FROM cursos");
 
-	 	if(!empty($_POST)){
-		$nombre = formatdate($_POST['nombreCurso']);
-		$nRecibo = $_POST['recibo'];
-		$monto = $_POST['monto'];
-		$nivelCurso = $_POST['nivel'];
-		$horario = $_POST['horario'];
-		$nombre = $_POST['p_name'];
-		$domicilio = $_POST['p_domicilio'];
-		$localidad = $_POST['p_localidad'];
-		$telefono = $_POST['p_telefono'];
-		$dni = $_POST['p_dni'];
-		$nacimiento = formatdate($_POST['p_fecha_nac']);
-		$email = $_POST['p_email'];
-		$facebook = $_POST['p_facebook'];
-		$instagram = $_POST['p_instagram'];
-		$ocupacion = $_POST['ocupacion'];
-		$observacion = $_POST['observacion'];
+		if(isset($_POST['send'])){
+			$nombre = $_POST['nombreCurso'];
+			$dia1 = $_POST['dia1'];
+			$desde1 = $_POST['desde1'];
+			$hasta1 = $_POST['hasta1'];
+			$dia2 = $_POST['dia2'];
+			$desde2 = $_POST['desde2'];
+			$hasta2 = $_POST['hasta2'];
+			$detalle = $_POST['textarea1'];
 		
-		$sql = "INSERT INTO alumnos(nombre, domicilio, localidad, telefono, dni, nacimiento, email, facebook, instagram, ocupacion, observacion, inicio) 
-		VALUES(:nombre, :domicilio, :localidad, :telefono, :dni, :nacimiento, :email, :facebook, :instagram, :ocupacion, :observacion, :inicio)";
-		$query = $pdo->prepare($sql);
-		$sql1 = "INSERT INTO curso(fechaInicio, numeroRecibo, monto, nivelCurso, horario, dniAlumno) VALUES(:fechaInicio, :numeroRecibo, :monto, :nivelCurso, :horario, :dniAlumno)";
-		$query1 = $pdo->prepare($sql1);
+			$sql = "INSERT INTO cursos(nombreCurso, dia1, desde1, hasta1, dia2, desde2, hasta2, detalle) 
+			VALUES(:nombreCurso, :dia1, :desde1, :hasta1, :dia2, :desde2, :hasta2, :detalle)";
+			$query = $pdo->prepare($sql);
 
-		$result1 = $query1->execute([
-		'fechaInicio' => $inicio,
-		'numeroRecibo' => $nRecibo,
-		'monto' => $monto,
-		'nivelCurso' => $nivelCurso,
-		'horario' =>$horario,
-		'dniAlumno' => $dni
-		]);
-
+			$result = $query->execute([
+			'nombreCurso' => $nombre,
+			'dia1' => $dia1,
+			'desde1' => $desde1,
+			'hasta1' => $hasta1,
+			'dia2' => $dia2,
+			'desde2' => $desde2,
+			'hasta2' => $hasta2,
+			'detalle' => $detalle
+			]);
+		
 		}
 
 
@@ -95,7 +87,7 @@
 			<form action="cursos.php" method="post" class="col s12">
 				<div class="row">
 					<div class="input-field col s12 offset-l4 l4">
-						<input placeholder="Placeholder" id="nombreCurso" type="text" class="validate">
+						<input id="nombreCurso" name="nombreCurso" type="text" class="validate">
 						<label for="nombreCurso">Nombre curso</label>
 					</div>
 				</div>
@@ -103,16 +95,16 @@
 					<div class="input-field col s12 l8">
 						<div class="col s6 l2">
 							<p>
-								<label for="lun1">
-								<input id="lun1" type="checkbox" />
+								<label>
+								<input name="dia1" type="radio" value="lunes"/>
 								<span>Lun</span>
 								</label>
 							</p>
 						</div>
 						<div class="col s6 l2">
 							<p>
-								<label for="mar1">
-								<input id="mar1" type="checkbox" />
+								<label>
+								<input name="dia1" type="radio" value="martes"/>
 								<span>Mar</span>
 								</label>
 							</p>
@@ -120,7 +112,7 @@
 						<div class="col s6 l2">
 							<p>
 								<label for="mier1">
-								<input id="mier1" type="checkbox" />
+								<input name="dia1" id="mier1" type="radio" />
 								<span>Mier</span>
 								</label>
 							</p>
@@ -128,7 +120,7 @@
 						<div class="col s6 l2">
 							<p>
 								<label for="jue1">
-								<input id="jue1" type="checkbox" />
+								<input name="dia1" id="jue1" type="radio" />
 								<span>Jue</span>
 								</label>
 							</p>
@@ -136,7 +128,7 @@
 						<div class="col s6 l2">
 							<p>
 								<label for="vier1">
-								<input id="vier1" type="checkbox" />
+								<input name="dia1" id="vier1" type="radio" />
 								<span>Vier</span>
 								</label>
 							</p>
@@ -144,7 +136,7 @@
 						<div class="col s6 l2">
 							<p>
 								<label for="sab1">
-								<input id="sab1" type="checkbox" />
+								<input name="dia1" id="sab1" type="radio" />
 								<span>Sab</span>
 								</label>
 							</p>
@@ -164,7 +156,7 @@
 						<div class="col s6 l2">
 							<p>
 								<label for="lun2">
-								<input id="lun2" type="checkbox" />
+								<input name="dia2" id="lun2" type="radio" />
 								<span>Lun</span>
 								</label>
 							</p>
@@ -172,7 +164,7 @@
 						<div class="col s6 l2">
 							<p>
 								<label for="mar2">
-								<input id="mar2" type="checkbox" />
+								<input name="dia2" id="mar2" type="radio" />
 								<span>Mar</span>
 								</label>
 							</p>
@@ -180,7 +172,7 @@
 						<div class="col s6 l2">
 							<p>
 								<label for="mier2">
-								<input id="mier2" type="checkbox" />
+								<input name="dia2" id="mier2" type="radio" />
 								<span>Mier</span>
 								</label>
 							</p>
@@ -188,7 +180,7 @@
 						<div class="col s6 l2">
 							<p>
 								<label for="jue2">
-								<input id="jue2" type="checkbox" />
+								<input name="dia2" id="jue2" type="radio" />
 								<span>Jue</span>
 								</label>
 							</p>
@@ -196,7 +188,7 @@
 						<div class="col s6 l2">
 							<p>
 								<label for="vier2">
-								<input id="vier2" type="checkbox" />
+								<input name="dia2" id="vier2" type="radio" />
 								<span>Vier</span>
 								</label>
 							</p>
@@ -204,7 +196,7 @@
 						<div class="col s6 l2">
 							<p>
 								<label for="sab2">
-								<input id="sab2" type="checkbox" />
+								<input name="dia2" id="sab2" type="radio" />
 								<span>Sab</span>
 								</label>
 							</p>
@@ -225,12 +217,13 @@
 						<label for="textarea1">Textarea</label>
 					</div>
 				</div>
+				<div class="modal-footer">
+					<input type="submit" class="modal-close waves-effect waves-green btn-flat" name="send" value="Aceptar">
+				</div>
 			</form>
 		</div>
 	</div>
-    <div class="modal-footer">
-      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Cancelar</a><a href="#!" class="modal-close waves-effect waves-green btn-flat">Aceptar</a>
-    </div>
+
   </div>
 
 
@@ -251,7 +244,7 @@
 				echo '<tr>';
 				echo '<td>'.$row['curso'].'</td>';
 				echo '<td>'.$row['horario'].'</td>';
-				echo '<td>'.$row['alumnos'].'</td>';
+				//echo '<td>'.$row['alumnos'].'</td>';
 				echo '<td><a class="waves-effect waves-light btn modal-trigger" href="#modal1">More info</a>';
 				echo '</tr>';
 
@@ -271,6 +264,7 @@
 	</table>
 
     <script>
+
 		$(document).ready(function(){
 			$('.timepicker').timepicker();
 		});
