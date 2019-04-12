@@ -11,7 +11,7 @@
 			$dia2 = $_POST['dia2'];
 			$desde2 = $_POST['desde2'];
 			$hasta2 = $_POST['hasta2'];
-			$detalle = $_POST['textarea1'];
+			$detalle = $_POST['detalle'];
 		
 			$sql = "INSERT INTO cursos(nombreCurso, dia1, desde1, hasta1, dia2, desde2, hasta2, detalle) 
 			VALUES(:nombreCurso, :dia1, :desde1, :hasta1, :dia2, :desde2, :hasta2, :detalle)";
@@ -144,11 +144,11 @@
 					</div>
 					<div class="col s6 l2">
 						<label for="desde1">Desde</label>
-						<input id="desde1" type="text" class="timepicker">
+						<input name="desde1" id="desde1" type="text" class="timepicker">
 					</div>	
 					<div class="col s6 l2">
 						<label id="hasta1">Hasta</label>
-						<input id="hasta1" type="text" class="timepicker">
+						<input name="hasta1" id="hasta1" type="text" class="timepicker">
 					</div>	
 				</div>
 				<div class="row">
@@ -204,17 +204,17 @@
 					</div>
 					<div class="col s6 l2">
 						<label for="desde2">Desde</label>
-						<input id="desde2" type="text" class="timepicker">
+						<input name="desde2" id="desde2" type="text" class="timepicker">
 					</div>	
 					<div class="col s6 l2">
 						<label for="hasta2">Hasta</label>
-						<input id="hasta2" type="text" class="timepicker">
+						<input name="hasta2" id="hasta2" type="text" class="timepicker">
 					</div>	
 				</div>
 				<div class="row">
 					<div class="input-field col s12">
-						<textarea id="textarea1" class="materialize-textarea"></textarea>
-						<label for="textarea1">Textarea</label>
+						<textarea name="detalle" id="detalle" class="materialize-textarea"></textarea>
+						<label for="detalle">Detalle</label>
 					</div>
 				</div>
 				<div class="modal-footer">
