@@ -32,4 +32,19 @@ function monthnumber($month){
 	}
 };
 
+function days($num){
+  switch ($num) {
+    case '1': return "Lunes";
+    case '2': return "Martes";
+    case '3': return "Miercoles";
+    case '4': return "Jueves";
+    case '5': return "Viernes";
+    case '6': return "Sabado";
+  }
+}
+
+function array_key($key, $array){
+  if(array_key_exists($key, $array)){
+  }
+}
 ?>
